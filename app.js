@@ -3,7 +3,7 @@ const path = require('path'); // path lets us navigate the firs system
 
 // heroky assigns a port it deploys via process (environment variables - coming)
 // locally this  run ..
-const port = process.env.Port || 3000; //a double pipe - ||-  means or
+const port = process.env.PORT || 3000; //a double pipe - ||-  means or
 
 const app = express();
 
@@ -11,7 +11,6 @@ app.use (express.static('public'));
 
 
 
-const app = express();
 app.get ('/', (red, res) => {
   console.log('at the home route')
   res.sendFile(path.join(__dirname + '/views/insex.html'));
