@@ -13,7 +13,7 @@ app.use (express.static('public'));
 
 app.get ('/', (red, res) => {
   console.log('at the home route')
-  res.sendFile(path.join(__dirname + '/views/insex.html'));
+  res.sendFile(path.join(__dirname + '/views/index.html'));
 })
 
 app.get('/contact', (req,res) => {
