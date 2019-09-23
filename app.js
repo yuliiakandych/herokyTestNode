@@ -1,14 +1,32 @@
-const http = require('http');
+const express = require('express');
+const path = require('path'); // path lets us navigate the firs system
 
-const hostname = '127.0.0.1';
-const port = 3030;
+// heroky assigns a port it deploys via process (environment variables - coming)
+// locally this  run ..
+const port = process.env.Port || 3000; //a double pipe - ||-  means or
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World we are live with node\n');
-});
+const app = express();
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+
+
+const app = express();
+app.get ('/', (red, res) => {
+  console.log('at the home route')
+  res.sendFile(path.join(__dirname + '/views/insex.html'));
+})
+
+app.get('/contact', (req,res) => {
+  console.log('at the cont route')
+  res.sendFile(path.join(__dirname + '/views/contact.html'));
+
+})
+
+app.get('/portfolio', (req,res) => {
+  console.log('at the port route')
+  res.send('on the portfolio page');
+
+})
+
+app.listen(port, () => {
+  console.log(`Server running at ${port}/`);
 });
