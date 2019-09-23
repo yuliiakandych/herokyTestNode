@@ -7,6 +7,8 @@ const port = process.env.Port || 3000; //a double pipe - ||-  means or
 
 const app = express();
 
+app.use (express.static('public'));
+
 
 
 const app = express();
